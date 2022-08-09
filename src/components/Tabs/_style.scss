@@ -1,0 +1,37 @@
+.tabs-nav {
+  display: flex;
+}
+
+.tabs-nav-label {
+  padding: $tabs-label-padding-y $tabs-label-padding-x;
+  cursor: pointer;
+}
+
+.tabs-card .tabs-nav-label {
+  margin-left:$tabs-label-margin-left;
+  border: $tabs-border-width $tabs-border-color solid;
+  background-color: $gray-100;
+}
+
+.tabs-nav-label-disabled {
+  color: $tabs-label-disabled-color;
+  cursor: not-allowed;
+}
+
+.tabs-nav-label-active {
+  color: $tabs-label-active-color;
+}
+
+.tabs-card .tabs-nav-label-active {
+  box-shadow: $tabs-label-active-box-shadow;
+  border-bottom: transparent;
+  background-color: $white;
+}
+
+.tabs-default .tabs-nav-label-active {
+  border-bottom: $tabs-label-active-border-bottom-width $tabs-label-active-color solid;
+}
+
+.tab-item-content {
+  padding: $tabs-content-padding-y $tabs-content-padding-x;
+}

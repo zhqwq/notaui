@@ -1,0 +1,112 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+  border-bottom: $menu-border-width solid $menu-border-color;
+  box-shadow: $menu-box-shadow;
+}
+
+.menu-item {
+  padding: $menu-item-padding-y $menu-item-padding-x;
+  cursor: pointer;
+  transition: $menu-transition;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+  &.disabled {
+    color: $menu-item-disabled-color;
+    pointer-events: none;
+  }
+}
+
+.submenu-item {
+  position: relative;
+  .submenu-title {
+    display: flex;
+    align-items: center;
+  }
+  .arrow-icon {
+    margin-left: 0.25rem;
+    transition: transform 0.6s ease-in-out;
+  }
+  &:hover {
+    .arrow-icon {
+      transform: rotate(180deg);
+    }
+  }
+  .submenu {
+    list-style: none;
+    padding-left: 0;
+    white-space: nowrap;
+    .menu-item {
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      transition: $menu-transition;
+      color: $body-color;
+      &.active,
+      &:hover {
+        color: $menu-item-active-color;
+      }
+    }
+  }
+}
+
+.is-vertical {
+  .arrow-icon {
+    transform: rotate(0deg) !important;
+  }
+  &.is-opened {
+    .arrow-icon {
+      transform: rotate(180deg) !important;
+    }
+  }
+}
+
+// 垂直菜单
+.menu-vertical {
+  flex-direction: column;
+  border-bottom: 0px;
+  border-right: $menu-border-width solid $menu-border-color;
+  > .menu-item {
+    border-left: $menu-item-active-border-width solid transparent;
+    &.active,
+    &:hover {
+      border-bottom: 0px;
+      border-left: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+  // 通过menu-opened类名控制显示与隐藏
+  .submenu {
+    display: none;
+    &.menu-opened {
+      display: block;
+    }
+  }
+}
+
+// 水平菜单
+.menu-horizontal {
+  // > 直接子代选择器
+  > .menu-item {
+    border-bottom: $menu-item-active-border-width solid transparent;
+    &.active,
+    &:hover {
+      border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+  // 绝对定位
+  .submenu {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 8px); // 100% 指代父元素的高度
+    left: 0;
+    border: $menu-border-width solid $menu-border-color;
+    box-shadow: $submenu-box-shadow;
+    &.menu-opened {
+      display: block;
+    }
+  }
+}

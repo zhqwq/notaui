@@ -1,0 +1,23 @@
+// 变量
+@import "variables";
+
+// 预设
+@import "reboot";
+
+// mixin
+@import 'mixin';
+
+// button
+@import "../components/Button/style";
+
+// alert
+@import '../components/Alert/style';
+
+// menu
+@import '../components/Menu/style';
+
+// tabs
+@import '../components/Tabs/style';
+
+// icon
+@import '../components/Icon/style'
