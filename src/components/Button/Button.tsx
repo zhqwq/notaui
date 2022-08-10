@@ -14,10 +14,9 @@ type buttonSize = 'lg' | 'sm'
 type buttonType = 'primary' | 'default' | 'danger' | 'link'
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
-type ButtonProps = Partial<Omit<NativeButtonProps, 'type'> & AnchorButtonProps>
+export type ButtonProps = Partial<Omit<NativeButtonProps, 'type'> & AnchorButtonProps>
 
 const Button: FC<ButtonProps> = ({ className, type = 'default', disabled = false, size, children, href, ...restProps }) => {
-  // 动态拼接类名, btn, btn-lg, btn-primary...
   const classes = classNames('btn', className, {
     [`btn-${type}`]: type,
     [`btn-${size}`]: size,

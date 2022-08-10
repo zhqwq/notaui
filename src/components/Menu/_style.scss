@@ -77,13 +77,6 @@
       border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
-  // 通过menu-opened类名控制显示与隐藏
-  .submenu {
-    display: none;
-    &.menu-opened {
-      display: block;
-    }
-  }
 }
 
 // 水平菜单
@@ -98,15 +91,11 @@
   }
   // 绝对定位
   .submenu {
-    display: none;
     position: absolute;
     z-index: 100;
     top: calc(100% + 8px); // 100% 指代父元素的高度
     left: 0;
     border: $menu-border-width solid $menu-border-color;
     box-shadow: $submenu-box-shadow;
-    &.menu-opened {
-      display: block;
-    }
   }
 }

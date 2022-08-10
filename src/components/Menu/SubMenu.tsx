@@ -1,20 +1,21 @@
-import classNames from 'classnames';
+import classNames from 'classnames'
 import React, { FC, FunctionComponentElement, useContext, useState } from 'react'
-import Icon from '../Icon/Icon';
-import { MenuContext } from './Menu';
-import { MenuItemProps } from './MenuItem';
+import Icon from '../Icon/Icon'
+import { MenuContext } from './Menu'
+import { MenuItemProps } from './MenuItem'
+import Transition from '../Transition/Transition'
 
 export interface SubMenuProps {
-  className?: string;
-  index?: string;
-  title?: string;
+  className?: string
+  index?: string
+  title?: string
   children?: React.ReactNode
 }
 
-const SubMenu: FC<SubMenuProps> = ({className, index, title, children, ...rest}) => {
+const SubMenu: FC<SubMenuProps> = ({ className, index, title, children, ...rest }) => {
   const context = useContext(MenuContext)
   const openedSubMenus = context.defaultOpenSubMenus as string[]
-  const isOpened = (index && context.mode === 'vertical') ? openedSubMenus.includes(index) : false
+  const isOpened = index && context.mode === 'vertical' ? openedSubMenus.includes(index) : false
   const [menuOpen, setOpen] = useState(isOpened)
 
   const classes = classNames('menu-item submenu-item', className, {
@@ -37,10 +38,17 @@ const SubMenu: FC<SubMenuProps> = ({className, index, title, children, ...rest})
   }
 
   const clickEvents = context.mode === 'vertical' ? { onClick: handleClick } : {}
-  const hoverEvents = context.mode === 'horizontal' ? {
-    onMouseEnter: (e: React.MouseEvent) => { handleMouse(e, true) },
-    onMouseLeave: (e: React.MouseEvent) => { handleMouse(e, false) }
-  } : {}
+  const hoverEvents =
+    context.mode === 'horizontal'
+      ? {
+          onMouseEnter: (e: React.MouseEvent) => {
+            handleMouse(e, true)
+          },
+          onMouseLeave: (e: React.MouseEvent) => {
+            handleMouse(e, false)
+          }
+        }
+      : {}
 
   const renderChildren = () => {
     const subMenuClasses = classNames('submenu', {
@@ -49,7 +57,7 @@ const SubMenu: FC<SubMenuProps> = ({className, index, title, children, ...rest})
 
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
-      if(childElement.type.displayName === 'MenuItem') {
+      if (childElement.type.displayName === 'MenuItem') {
         return React.cloneElement(childElement, {
           index: `${index}-${i}` // 为SubMenu中的MenuItem添加二级index
         })
@@ -59,17 +67,17 @@ const SubMenu: FC<SubMenuProps> = ({className, index, title, children, ...rest})
     })
 
     return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </Transition>
     )
   }
 
   return (
     <li key={index} className={classes} {...hoverEvents} {...clickEvents} {...rest}>
-      <div className='submenu-title'>
+      <div className="submenu-title">
         {title}
-        <Icon icon="angle-down" className='arrow-icon'/>
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

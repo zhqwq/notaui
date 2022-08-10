@@ -8,10 +8,13 @@ import Tabs from './components/Tabs/Tabs'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Icon from './components/Icon/Icon'
+import Transition from './components/Transition/Transition'
+import { useState } from 'react'
 
 library.add(fas)
 
 function App() {
+  const [showButton, setShowButton] = useState(true)
   return (
     <div className="App">
       <Button disabled className="custom">
@@ -50,39 +53,49 @@ function App() {
         </SubMenu>
       </Menu>
       <Menu
-        defaultIndex='0'
+        defaultIndex="0"
         onSelect={index => {
           alert(index)
         }}
         mode="vertical"
         defaultOpenSubMenus={['2']}
       >
-        <MenuItem index='0'> 1 </MenuItem>
-        <MenuItem index='1' disabled>
+        <MenuItem index="0"> 1 </MenuItem>
+        <MenuItem index="1" disabled>
           2
         </MenuItem>
-        <SubMenu title="Dropdown" index='2'>
+        <SubMenu title="Dropdown" index="2">
           <MenuItem>dropdown 1</MenuItem>
           <MenuItem>dropdown 2</MenuItem>
           <MenuItem>dropdown 3</MenuItem>
         </SubMenu>
       </Menu>
       <hr />
-      <Tabs defaultIndex={0} onSelect={(index) => console.log(index)} type='card'>
-        <TabItem label='index1'>this is card</TabItem>
-        <TabItem label='index2'>this is card 2</TabItem>
-        <TabItem label='index3'>this is card 3</TabItem>
-        <TabItem label='index4' disabled>this is card 4</TabItem>
+      <Tabs defaultIndex={0} onSelect={index => console.log(index)} type="card">
+        <TabItem label="index1">this is card</TabItem>
+        <TabItem label="index2">this is card 2</TabItem>
+        <TabItem label="index3">this is card 3</TabItem>
+        <TabItem label="index4" disabled>
+          this is card 4
+        </TabItem>
       </Tabs>
-      <Tabs defaultIndex={0} onSelect={(index) => console.log(index)}>
-        <TabItem label='index1'>this is default</TabItem>
-        <TabItem label='index2'>this is default 2</TabItem>
+      <Tabs defaultIndex={0} onSelect={index => console.log(index)}>
+        <TabItem label="index1">this is default</TabItem>
+        <TabItem label="index2">this is default 2</TabItem>
         <TabItem label={<h1>Hello</h1>}>this is default 3</TabItem>
-        <TabItem label='index4' disabled>this is default 4</TabItem>
+        <TabItem label="index4" disabled>
+          this is default 4
+        </TabItem>
       </Tabs>
       <hr />
-      <Icon icon="coffee" theme='danger'/>
-      <Icon icon="user-secret" theme='primary' />
+      <Icon icon="coffee" theme="danger" />
+      <Icon icon="user-secret" theme="primary" />
+      <hr />
+      <Transition in={showButton} timeout={300} animation="zoom-in-top">
+        <Button size="lg" onClick={() => setShowButton(!showButton)}>
+          A lg button
+        </Button>
+      </Transition>
     </div>
   )
 }
