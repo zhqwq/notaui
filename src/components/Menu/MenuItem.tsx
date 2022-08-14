@@ -3,10 +3,25 @@ import React, { FC, useContext } from 'react'
 import { MenuContext } from './Menu'
 
 export interface MenuItemProps {
+  /**
+   * 类名
+   */
   className?: string
+  /**
+   * 样式
+   */
   style?: React.CSSProperties,
+  /**
+   * 子元素
+   */
   children?: React.ReactNode,
+  /**
+   * 序号
+   */
   index?: string
+  /**
+   * MenuItem 失效
+   */
   disabled?: boolean
 }
 

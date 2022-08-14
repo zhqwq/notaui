@@ -5,8 +5,17 @@ import { TabsContext } from './Tabs'
 export interface TabItemProps {
   className?: string
   children?: React.ReactNode
+  /**
+   * TabItem 标签名
+   */
   label?: React.ReactNode
+  /**
+   * TabItem 失效
+   */
   disabled?: boolean
+  /**
+   * TabItem 序号
+   */
   index?: number
 }
 

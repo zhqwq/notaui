@@ -3,16 +3,34 @@ import { FC, HTMLAttributes, useState } from 'react'
 import Transition from '../Transition/Transition'
 
 interface BaseAlertProps {
+  /**
+   * 类名
+   */
   className?: string
+  /**
+   * Alert 类型
+   */
   type?: 'success' | 'default' | 'danger' | 'warning'
+  /**
+   * 提示消息
+   */
   message?: string
+  /**
+   * 标题
+   */
   title?: string
+  /**
+   * 是否可以关闭
+   */
   closable?: boolean
 }
 
 type AlertProps = BaseAlertProps & HTMLAttributes<HTMLElement>
 
-const Alert: FC<AlertProps> = ({ className, type, message, title, closable = true, ...restProps }) => {
+/**
+ * 警告提示，展现需要关注的信息。
+ */
+const Alert: FC<AlertProps> = ({ className, type, message, title, closable = false, ...restProps }) => {
   const [close, setClose] = useState(false)
 
   const classes = classNames('alert', className, {

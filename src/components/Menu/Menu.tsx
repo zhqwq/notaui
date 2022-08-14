@@ -7,13 +7,34 @@ type MenuMode = 'horizontal' | 'vertical'
 type SelectCallback = (selectedIndex: string) => void
 
 export interface MenuProps {
+  /**
+   * 类名
+   */
   className?: string
+  /**
+   * 样式
+   */
   style?: React.CSSProperties
+  /**
+   * 子元素, MenuItem 或 SubMenu
+   */
   children?: React.ReactNode
+  /**
+   * 默认高亮
+   */
   defaultIndex?: string
+  /**
+   * 配置水平或垂直菜单
+   */
   mode?: MenuMode
+  /**
+   * 点击 MenuItem 的回调函数
+   */
   onSelect?: SelectCallback
-  defaultOpenSubMenus?: string[] // 默认打开的子菜单
+  /**
+   * 默认打开的子菜单
+   */
+  defaultOpenSubMenus?: string[]
 }
 
 interface IMenuContext {
@@ -25,6 +46,9 @@ interface IMenuContext {
 
 export const MenuContext = createContext<IMenuContext>({ index: '0' })
 
+/**
+ * 为页面和功能提供导航的菜单列表。
+ */
 const Menu: FC<MenuProps> = ({ className, style, children, defaultIndex = '0', mode = 'horizontal', onSelect, defaultOpenSubMenus = [], ...rest }) => {
   const [currentActive, setActive] = useState(defaultIndex)
 
