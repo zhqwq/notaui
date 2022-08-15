@@ -38,6 +38,7 @@ export type ButtonProps = Partial<Omit<NativeButtonProps, 'type'> & AnchorButton
  * 按钮用于触发一个即时操作。
  */
 const Button: FC<ButtonProps> = ({ className, type = 'default', disabled = false, size, children, href, ...restProps }) => {
+  // 根据 props 计算不同的 classNames
   const classes = classNames('btn', className, {
     [`btn-${type}`]: type,
     [`btn-${size}`]: size,

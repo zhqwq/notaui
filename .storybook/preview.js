@@ -1,4 +1,4 @@
-import '!style-loader!css-loader!sass-loader!../src/styles/index.scss'
+import '!style-loader!css-loader!sass-loader!../src/styles/index.scss' // 全局样式
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

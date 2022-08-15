@@ -41,10 +41,17 @@
     "overrides": [
       {
         "files": [
-          "**/*.stories.*"
+          "**/*.stories.*",
+          "**/*.test.*"
         ],
         "rules": {
-          "import/no-anonymous-default-export": "off"
+          "import/no-anonymous-default-export": "off",
+          "testing-library/no-node-access": [
+            "error",
+            {
+              "allowContainerFirstChild": true
+            }
+          ]
         }
       }
     ]
