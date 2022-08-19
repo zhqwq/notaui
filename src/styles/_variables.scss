@@ -14,7 +14,7 @@ $gray-900: #212529 !default;
 $black: #000000 !default;
 
 // 基础色板
-$blue: #0d6efd !default;
+$blue: #428eff !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
 $pink: #d63384 !default;
@@ -324,3 +324,10 @@ $progress-bg: $gray-200 !default;
 $progress-border-radius: $border-radius !default;
 $progress-bar-color: $white !default;
 $progress-bar-transition: width 0.6s ease !default;
+
+// Select & Option
+$option-list-box-shadow: $submenu-box-shadow;
+$option-list-border: 1px solid $gray-300;
+$option-item-padding-y: 8px;
+$option-item-padding-x: 10px;
+$option-item-margin: 2px 0;

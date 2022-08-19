@@ -1,0 +1,42 @@
+.select {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.select-arrow {
+  position: absolute;
+  top: 20%; // 居中需要考虑元素自身高度
+  right: 11px;
+}
+
+.select-input > input {
+  cursor: pointer;
+  caret-color: transparent; // 隐藏光标
+}
+
+.option-list {
+  position: absolute;
+  width: 100%;
+  box-shadow: $option-list-box-shadow;
+  border: $option-list-border;
+  border-radius: $border-radius;
+  margin-top: 5px;
+}
+
+.option-item {
+  cursor: pointer;
+  padding: $option-item-padding-y $option-item-padding-x;
+  margin: $option-item-margin;
+  background-color: $white;
+  &.selected {
+    background-color: $blue;
+  }
+  &:hover:not(.selected,.disabled) {
+    background-color: $gray-300;
+  }
+  &.disabled {
+    color: $gray-200;
+    cursor: not-allowed;
+  }
+}
