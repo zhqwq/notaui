@@ -30,3 +30,7 @@ ReactDOM.render(<Button>Hello, notaui</Button>, root)
 - 需求分析
 - 编码实现
 - 单元测试
+- Storybook
+- husky git hooks
+- travis CICD
+
