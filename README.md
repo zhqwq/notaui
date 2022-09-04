@@ -1,6 +1,9 @@
 # notaui
 `notaui` 是一个模仿 Ant Design 的 React UI 组件库
 
+## 🎊 预览
+https://zhqwq.github.io/notaui/
+
 ## 📦 安装
 
 ```bash
