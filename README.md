@@ -1,31 +1,31 @@
-# Viking UI
-`viking` 是一个模仿 Ant Deisgn 的 React UI 组件库, 代码来源于慕课网
-
+# notaui
+`notaui` UI Library Demo
 
 ## ✨ 特性
 
 - TypeScript 编写
-- SCSS 样式
+- SCSS 样式控制
 - Storybook 组件文档生成
+- 单元测试覆盖
 
 ## 📦 安装
 
 ```bash
 # With npm
-npm install viking
+npm install notaui
 
 # With yarn
-yarn add viking
+yarn add notaui
 ```
 
 ## 🔨 使用
 ```js
-import { Button } from 'viking'
+import { Button } from 'notaui'
 
-ReactDOM.render(<Button>Hello, viking</Button>, root)
+ReactDOM.render(<Button>Hello, notaui</Button>, root)
 ```
 
-## ⛄ 开发
+## ⛄ 开发过程
 - 设计草图
 - 需求分析
 - 编码实现
