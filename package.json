@@ -29,7 +29,7 @@
     "clean": "rimraf ./dist",
     "lint": "eslint --ext js,ts,tsx --max-warnings 5 src",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -s public -o docs",
     "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build",
     "prepare": "husky install"
   },
