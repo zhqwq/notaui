@@ -1,5 +1,5 @@
 # notaui
-`notaui` UI Library Demo
+`notaui` UI 组件库 Demo
 
 ## ✨ 特性
 
@@ -28,9 +28,9 @@ ReactDOM.render(<Button>Hello, notaui</Button>, root)
 ## ⛄ 开发过程
 - 设计草图
 - 需求分析
-- 编码实现
-- 单元测试
-- Storybook
+- React + TS 编码实现
+- Jest 单元测试
+- Storybook 组件文档
 - husky git hooks
 - travis CICD
 
